@@ -1,0 +1,2 @@
+# BBD
+bivariate binomial distribution
