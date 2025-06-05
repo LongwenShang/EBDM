@@ -26,9 +26,57 @@ The `ebdm` package is available on CRAN. Install it using:
 
 ```r
 install.packages("ebdm")
+```
 
+---
 
 ## 🌰 Usage Example
+
+```r
 library(ebdm)
+
+# Load an example dataset
 data(eg_data)
-ebdm_estimate(eg_data$ni, eg_data$xi, eg_data$yi, ci_method = "lr")
+
+# Estimate joint distribution using likelihood ratio method for CI
+result <- ebdm_estimate(
+  ni = eg_data$ni,
+  xi = eg_data$xi,
+  yi = eg_data$yi,
+  ci_method = "lr"
+)
+
+print(result)
+```
+
+---
+
+## 📈 Reproducing Simulation Studies
+
+## 📚 Citation
+
+If you use this package or method in your work, please cite:
+```bibtex
+@article{shang2025ebdm,
+ title = {Estimating the Joint Distribution of Two Binary Variables from Their Marginal Summaries},
+ author = {Shang, Longwen and Tsao, Min and Zhang, Xuekui},
+ journal = {arXiv preprint arXiv:2505.03995},
+ year = {2025}
+}
+```
+
+
+## 💬 Contact
+
+For questions or feedback, please contact:
+- 📧 **Xuekui Zhang** – xuekui@uvic.ca
+- 📧 **Longwen Shang** – shanglongwen0918@gmail.com
+
+
+
+
+
+
+
+
+
