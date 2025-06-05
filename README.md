@@ -53,6 +53,42 @@ print(result)
 
 ## 📈 Reproducing Simulation Studies
 
+This repository includes the simulation code used in our paper to evaluate the performance of the `ebdm` package across **20 different settings**, with **1000 replications per setting**.
+The simulations assess estimation accuracy, confidence interval coverage, and robustness under varying sample sizes and dependency structures.
+
+### Simulation Workflow Overview
+| File            | Purpose                                                                  |
+|-----------------|--------------------------------------------------------------------------|
+| `main.R`        | Core simulation logic. Takes a setting index and a seed index as input.  |
+| `submit.sh`     | Shell script to submit 1000 replications for a given setting.            |
+| `seeds.rda`     | Fixed random seeds to ensure reproducibility.                            |
+| `results/`      | Stores raw outputs from each simulation replicate.                       |
+| `merge_result.R`| Aggregates all simulation results.                                       |
+| `eval.R`        | Computes performance metrics and generates plots.        
+### Run on SLURM Cluster Submit simulation jobs with:
+```bash
+for j in 1 2 3 4;
+do
+sbatch submit1.sh $j
+done
+```
+Each job (`submit.sh`) runs 1000 replicates for one simulation setting.
+### After Simulation: Merge and Evaluate
+After all simulations are completed, run the following script to merge the results:
+
+```r
+source("merge_result.R")
+```
+Then use `eval.R` to analyze the merged results and generate plots, which computes:
+- Bias of point estimates
+- Empirical standard errors
+- Confidence interval coverage
+- Plots for publication
+### Directory Structure
+``` simulations/ ├── main.R ├── submit1.sh ├── seeds.rda ├── results/ ├── merge_result.R └── eval.R ```
+All simulation results are stored in `results/`. The seeds file ensures reproducibility.
+
+
 ## 📚 Citation
 
 If you use this package or method in your work, please cite:
@@ -64,6 +100,12 @@ If you use this package or method in your work, please cite:
  year = {2025}
 }
 ```
+
+
+
+
+
+
 
 
 ## 💬 Contact
