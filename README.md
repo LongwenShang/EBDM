@@ -12,6 +12,7 @@ The package implements maximum likelihood estimation for recovering the joint di
 ```r
 install.packages("ebdm")
 
+## 🌰 Usage Example
 library(ebdm)
 data(eg_data)
 ebdm_estimate(eg_data$ni, eg_data$xi, eg_data$yi, ci_method = "lr")
