@@ -231,26 +231,27 @@ ggplot(DD2, aes(x = sd_error, y = k)) +
 #QQ & hist
 ################################################################################
 plot_histograms <- function(results, ni_val, p11_val) {
+  ni_label <- if (ni_val < 500) "small" else "large"
   par(family = "serif")
   par(mfcol = c(1, 5))
-  
   for (ii in 1:5) {
     kk <- 10 * ii
     DD <- subset(results, k == kk & ni_around == ni_val & p11_true == p11_val)
     hist(DD$p11_hat, xlab = expression(p[11]), 
-         main = bquote(p[11] == .(p11_val) ~ " & large" ~ n[i] ~ " & " ~ k == .(kk)))
+         main = bquote(p[11] == .(p11_val) ~ " & " ~ .(ni_label) ~ " " ~ n[i] ~ " & " ~ k == .(kk)))
   }
 }
 
+
 plot_qqplots <- function(results, ni_val, p11_val) {
+  ni_label <- if (ni_val < 500) "small" else "large"
   par(family = "serif")
-  par(mfcol = c(1, 5)) 
-  
+  par(mfcol = c(1, 5))
   for (ii in 1:5) {
     kk <- 10 * ii
     DD <- subset(results, k == kk & ni_around == ni_val & p11_true == p11_val)
     qqnorm(DD$p11_hat, 
-           main = bquote(p[11] == .(p11_val) ~ " & large" ~ n[i] ~ " & " ~ k == .(kk)))
+           main = bquote(p[11] == .(p11_val) ~ " & " ~ .(ni_label) ~ " " ~ n[i] ~ " & " ~ k == .(kk)))
     qqline(DD$p11_hat, distribution = qnorm, qtype = 7, col = 'darkred')
   }
 }
