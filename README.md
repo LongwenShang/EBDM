@@ -1,4 +1,4 @@
-# ebdm: Estimating Bivariate Dependency from Marginal Data (Binary)
+# ebdm-binary: Estimating Bivariate Dependency from Marginal Data (Binary)
 
 This repository accompanies the R package **ebdm**, available on CRAN.
 
