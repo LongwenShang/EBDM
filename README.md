@@ -1,8 +1,8 @@
-# ebdm: Estimating Binary Dependency from Marginal Data
+# ebdm: Estimating Bivariate Dependency from Marginal Data (Binary)
 
 This repository accompanies the R package **ebdm**, available on CRAN.
 
-The package implements a **maximum likelihood method** to estimate the joint distribution of two binary variables using only **marginal summary data** from multiple independent studies. This setting arises frequently in **clinical trial simulation (CTS)** where only aggregated data (e.g., proportions, sample sizes) are publicly available due to privacy constraints.
+The package implements a **maximum likelihood method** to estimate the joint distribution of two **binary** variables using only **marginal summary data** from multiple independent studies. This setting arises frequently in **clinical trial simulation (CTS)** where only aggregated data (e.g., proportions, sample sizes) are publicly available due to privacy constraints.
 
 The method is detailed in our manuscript:
 
