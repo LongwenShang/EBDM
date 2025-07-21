@@ -1,6 +1,5 @@
-#r packahe
 args <- commandArgs(trailingOnly = TRUE) # take command argument
-seed_index = as.numeric(args[1]) # passing first argument(seed index)
+seed_index = as.numeric(args[1]) # passing first argument(seed的index)
 print(seed_index)
 
 load(file = paste0("./seeds.rda"))
@@ -13,7 +12,6 @@ setting_index <- as.numeric(args[2])
 print(setting_index)
 
 #settings
-
 settings <- list(
   list(ni_around = 100, ni_low = 100, ni_high = 200, p11_true = 0.25, p1_true = 0.6, p2_true = 0.35),
   list(ni_around = 100, ni_low = 100, ni_high = 200, p11_true = 0.75, p1_true = 0.77, p2_true = 0.8),
@@ -86,12 +84,12 @@ colnames(result) = c("rep","ni_around","k","p1_true","p2_true","p11_true",
                      "sd_error", "ratio","seed",
                      "CI_1_up","CI_1_down","CI_1_cover",
                      "CI_2_up","CI_2_down","CI_2_cover")
-################################################################################
+########################################################################seetings
 
 
 
 
-################################################################################
+########################################################################seetings
 
 for (k in 1:length(k_pool)){
   
@@ -100,8 +98,8 @@ for (k in 1:length(k_pool)){
   data <- simu(kk = kk, ni_min = ni_low, ni_max = ni_high,
                p1 = p1_true, p2 = p2_true, p11 = p11_true)
   
-  est1 <- ebdm_estimate(data$ni, data$xi, data$yi, ci_method = "normal")
-  est2 <- ebdm_estimate(data$ni, data$xi, data$yi, ci_method = "lr")
+  est1 <- cor_bin(data$ni, data$xi, data$yi, ci_method = "normal")
+  est2 <- cor_bin(data$ni, data$xi, data$yi, ci_method = "lr")
   
   p1_hat <- est1$p1_hat
   p2_hat <- est1$p2_hat
@@ -146,4 +144,3 @@ for (k in 1:length(k_pool)){
 }
 
 save(result, file = paste0("./results/","setting",setting_index,"_result_",seed_index,".rda"))
-
