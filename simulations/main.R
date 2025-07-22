@@ -1,5 +1,5 @@
 args <- commandArgs(trailingOnly = TRUE) # take command argument
-seed_index = as.numeric(args[1]) # passing first argument(seed的index)
+seed_index = as.numeric(args[1]) # passing first argument(seed's index)
 print(seed_index)
 
 load(file = paste0("./seeds.rda"))
