@@ -83,7 +83,7 @@ After all simulations are completed, run `merge_result.R` to merge the results. 
 ```
 simulations/
 ├── main.R
-├── submit1.sh
+├── submit.sh
 ├── seeds.rda
 ├── results/
 ├── merge_result.R
